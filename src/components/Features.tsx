@@ -4,7 +4,7 @@ import ContactButton from "./ContactButton";
 
 const StyledFeatures = styled.section`
   padding: 3rem 0;
-  margin: 1rem 0;
+  margin: 3rem 0;
   background-color: #fff;
 `;
 
