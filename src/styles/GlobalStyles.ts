@@ -56,13 +56,10 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.palette.primary.main};
+    background: ${({ theme }) => theme.palette.primary.dark};
     border-radius: 4px;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.palette.primary.dark};
-  }
 `;
 
 export default GlobalStyles;
