@@ -12,7 +12,7 @@
     "server": "nodemon -e ts --exec \"node --import tsx server.ts\"",
     "start": "node --import tsx server.ts",
     "build:server": "tsc",
-    "render-build": "npm install && npm run build:server"
+    "render-build": "npm install --include=dev && npm run build:server"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
