@@ -11,7 +11,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? ["https://https://bigcorp.netlify.app/"] //Netlify frontend URL
+        ? ["https://https://bigcorp.netlify.app"] //Netlify frontend URL
         : "*",
   })
 );
