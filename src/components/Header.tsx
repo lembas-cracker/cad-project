@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { AppBar, Button, Container, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
-import ContactButton from "./ContactButton";
+import ContactButton from "./ContactButton.tsx";
 
 const StyledAppBar = styled(AppBar)`
   position: sticky;

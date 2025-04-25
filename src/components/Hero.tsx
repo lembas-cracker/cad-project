@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { styled } from "styled-components";
-import YouTubeEmbed from "./YouTubeEmbed";
+import YouTubeEmbed from "./YouTubeEmbed.tsx";
 
 const StyledHero = styled.section`
   background-color: #f5f5f5;

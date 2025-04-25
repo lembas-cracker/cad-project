@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
-import Features from "../components/Features";
-import Hero from "../components/Hero";
-import JoinUs from "../components/JoinUs";
-import Layout from "../components/Layout";
+import Features from "../components/Features.tsx";
+import Hero from "../components/Hero.tsx";
+import JoinUs from "../components/JoinUs.tsx";
+import Layout from "../components/Layout.tsx";
 
 const HomePage = () => {
   return (

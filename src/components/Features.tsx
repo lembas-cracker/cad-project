@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import { styled } from "styled-components";
-import ContactButton from "./ContactButton";
+import ContactButton from "./ContactButton.tsx";
 
 const StyledFeatures = styled.section`
   padding: 3rem 0;

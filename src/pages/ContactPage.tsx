@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import Form from "../components/Form";
-import Layout from "../components/Layout";
+import Form from "../components/Form.tsx";
+import Layout from "../components/Layout.tsx";
 
 const ContactPage = () => {
   return (

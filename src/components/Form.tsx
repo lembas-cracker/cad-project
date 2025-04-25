@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { TextField, Button, Typography, Box, Alert, CircularProgress, FormControl } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
-import Success from "./Success";
+import Success from "./Success.tsx";
 
 const FormLabel = styled(Typography)(({ theme }) => ({
   fontWeight: 600,

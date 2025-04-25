@@ -1,6 +1,6 @@
 import { Container, Typography } from "@mui/material";
 import { styled } from "styled-components";
-import ContactButton from "./ContactButton";
+import ContactButton from "./ContactButton.tsx";
 
 const StyledJoinUs = styled.section`
   background-color: #f5f5f5;
