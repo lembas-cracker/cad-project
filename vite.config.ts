@@ -14,8 +14,5 @@ export default defineConfig({
         changeOrigin: true,
       },
     },
-    headers: {
-      "Content-Type": "application/javascript",
-    },
   },
 });

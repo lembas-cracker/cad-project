@@ -6,7 +6,7 @@ import Layout from "../components/Layout.tsx";
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <Helmet>
         <title>Welcome to Big Corp. | Big Corp.</title>
         <meta name="description" content="Welcome to Big Corp.!" />
@@ -21,7 +21,7 @@ const HomePage = () => {
         <Features />
         <JoinUs />
       </Layout>
-    </div>
+    </>
   );
 };
 
