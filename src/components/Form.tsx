@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { TextField, Button, Typography, Box, Alert, CircularProgress, FormControl } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
+import Success from "./Success";
 
 const FormLabel = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
@@ -85,13 +86,17 @@ const Form = () => {
     }
   };
 
+  if (submitSuccess) {
+    return <Success name={formData.name} />;
+  }
+
   return (
     <Container sx={{ textAlign: "center" }}>
       <Typography variant="h2" component="h1" sx={{ fontWeight: 700, fontSize: { xs: "2rem", md: "2.5rem" }, mb: 4 }}>
         Fill Out The Form
       </Typography>
 
-      {submitError && <Alert>{submitError}</Alert>}
+      {submitError && <Alert severity="error">{submitError}</Alert>}
 
       <FormControl
         onSubmit={handleSubmit}
