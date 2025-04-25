@@ -7,7 +7,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === "production"
+        ? ["https://https://bigcorp.netlify.app/"] //Netlify frontend URL
+        : "*",
+  })
+);
 app.use(express.json());
 
 app.post("/api/contact", (req, res) => {
