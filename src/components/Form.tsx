@@ -3,6 +3,18 @@ import { TextField, Button, Typography, Box, Alert, CircularProgress, FormContro
 import { Container } from "@mui/system";
 import { useState } from "react";
 
+const FormLabel = styled(Typography)(({ theme }) => ({
+  fontWeight: 600,
+  color: theme.palette.text.primary,
+  marginBottom: theme.spacing(1),
+  "&.required:after": {
+    content: '" *"',
+    color: theme.palette.error.main,
+  },
+}));
+
+const apiURL = import.meta.env.VITE_API_URL;
+
 const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -40,7 +52,7 @@ const Form = () => {
     return !Object.values(newErrors).some(Boolean);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError("");
 
@@ -51,7 +63,21 @@ const Form = () => {
     setIsSubmitting(true);
 
     try {
-    } catch (error) {}
+      const response = await fetch(`${apiURL}/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      setSubmitSuccess(true);
+    } catch (error) {
+      setSubmitError("Submission failed! Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -63,6 +89,7 @@ const Form = () => {
       {submitError && <Alert>{submitError}</Alert>}
 
       <FormControl
+        onSubmit={handleSubmit}
         component="form"
         sx={{
           maxWidth: "350px",
@@ -76,9 +103,9 @@ const Form = () => {
           alignContent: "center",
         }}
       >
-        <Typography variant="subtitle1" component="label" gutterBottom>
-          Full Name
-        </Typography>
+        <FormLabel variant="subtitle1" className="required">
+          Name
+        </FormLabel>
         <TextField
           name="name"
           label="e.g. Jane Doe"
@@ -98,9 +125,9 @@ const Form = () => {
           }}
         />
 
-        <Typography variant="subtitle1" component="label" gutterBottom>
+        <FormLabel variant="subtitle1" className="required">
           Email
-        </Typography>
+        </FormLabel>
         <TextField
           name="email"
           label="e.g. jdoe@me.com"
@@ -121,9 +148,9 @@ const Form = () => {
           }}
         />
 
-        <Typography variant="subtitle1" component="label" gutterBottom>
+        <FormLabel variant="subtitle1" className="required">
           Message
-        </Typography>
+        </FormLabel>
         <TextField
           name="message"
           label="e.g. Hello there!"
