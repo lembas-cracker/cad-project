@@ -13,7 +13,7 @@ const FormLabel = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const apiURL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -63,7 +63,7 @@ const Form = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${apiURL}/api/contact`, {
+      const response = await fetch(API_URL + "/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,7 +71,12 @@ const Form = () => {
         body: JSON.stringify(formData),
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.log(data.message);
       setSubmitSuccess(true);
     } catch (error) {
       setSubmitError("Submission failed! Please try again.");
