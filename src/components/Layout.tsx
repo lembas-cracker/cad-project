@@ -35,14 +35,15 @@ const MainContent = styled.main<LayoutProps>`
     padding-right: 32px;
   }
 
- @media (max-width: 768px) {
-  padding: ${({ home }) => (home ? "0 0 4rem 0" : "4rem 0")};
-}
-
   @media (min-width: 1200px) {
     padding-left: 128px;
     padding-right: 128px;
   }
+    
+ @media (max-width: 768px) {
+  padding: ${({ home }) => (home ? "0 0 4rem 0" : "4rem 0")};
+}
+
 `;
 
 const Layout = ({ children, home }: LayoutProps) => {
