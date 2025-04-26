@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const YouTubeContainer = styled.div`
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   border-radius: 8px;
@@ -26,7 +26,7 @@ const Placeholder = styled.div`
   width: 100%;
   height: 100%;
   background-color: #f0f0f0;
-  background-image: url("https://i.ytimg.com/vi_webp/dQw4w9WgXcQ/maxresdefault.webp");
+  background-image: url("src/assets/maxresdefault.webp");
   background-size: cover;
   display: flex;
   align-items: center;
