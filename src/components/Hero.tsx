@@ -6,7 +6,7 @@ const StyledHero = styled.section`
   background-color: #f5f5f5;
   border-radius: 12px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 2rem 2rem;
+  padding: 2rem;
 `;
 
 const HeroGrid = styled.div`
@@ -25,7 +25,11 @@ const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 2rem;
+  padding: 2rem 0;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const Hero = () => {
@@ -42,7 +46,7 @@ const Hero = () => {
               lineHeight: 1.2,
             }}
           >
-            Your Powerful Headline Here
+            Super Cool Powerful Headline Here
           </Typography>
           <Typography
             variant="subtitle1"
@@ -51,7 +55,10 @@ const Hero = () => {
               color: "text.secondary",
             }}
           >
-            A compelling subheading that explains your value proposition in a few words.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur.
           </Typography>
         </HeroContent>
         <YouTubeEmbed videoId="dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" />
