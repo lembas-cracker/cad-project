@@ -10,16 +10,16 @@ import { HelmetProvider } from "react-helmet-async";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <StyledThemeProvider theme={theme}>
-          <HelmetProvider>
+    <HelmetProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <StyledThemeProvider theme={theme}>
             <CssBaseline />
             <GlobalStyles />
             <App />
-          </HelmetProvider>
-        </StyledThemeProvider>
-      </ThemeProvider>
-    </StyledEngineProvider>
+          </StyledThemeProvider>
+        </ThemeProvider>
+      </StyledEngineProvider>
+    </HelmetProvider>
   </StrictMode>
 );
