@@ -1,6 +1,8 @@
 import { Typography } from "@mui/material";
+import React from "react";
 import { styled } from "styled-components";
-import YouTubeEmbed from "./YouTubeEmbed.tsx";
+
+const YouTubeEmbed = React.lazy(() => import("./YouTubeEmbed"));
 
 const StyledHero = styled.section`
   background-color: #f5f5f5;
@@ -15,7 +17,7 @@ const HeroGrid = styled.div`
   gap: 2rem;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1620px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -26,6 +28,7 @@ const HeroContent = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem 0;
+  text-wrap: balance;
 
   @media (max-width: 768px) {
     text-align: center;
