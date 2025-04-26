@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { styled } from "styled-components";
-import ContactButton from "./ContactButton.tsx";
+import CustomButton from "./CustomButton.tsx";
+import theme from "../styles/theme.ts";
 
 const StyledFeatures = styled.section`
   padding: 3rem 0;
@@ -24,7 +25,7 @@ const FeaturesGrid = styled.div`
 `;
 
 const FeatureItem = styled(Box)`
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 8px;
   transition: all 0.3s ease;
   text-align: left;
@@ -32,6 +33,10 @@ const FeatureItem = styled(Box)`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
   }
 `;
 
@@ -99,7 +104,20 @@ const Features = () => {
             </FeatureItem>
           ))}
         </FeaturesGrid>
-        <ContactButton />
+        <Box sx={{ display: "flex", justifyContent: "center", px: "1rem" }}>
+          <CustomButton
+            to="contact"
+            sx={{
+              [theme.breakpoints.down("sm")]: {
+                maxWidth: "none",
+              },
+              flex: 1,
+              maxWidth: 1 / 4,
+            }}
+          >
+            Contact Us
+          </CustomButton>
+        </Box>
       </Container>
     </StyledFeatures>
   );

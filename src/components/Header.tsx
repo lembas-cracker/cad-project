@@ -1,7 +1,8 @@
 import { styled } from "styled-components";
-import { AppBar, Button, Container, Toolbar } from "@mui/material";
+import { AppBar, Box, Button, Container, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
-import ContactButton from "./ContactButton.tsx";
+import CustomButton from "./CustomButton.tsx";
+import theme from "../styles/theme.ts";
 
 const StyledAppBar = styled(AppBar)`
   position: sticky;
@@ -18,7 +19,18 @@ const Header = () => {
           <Button sx={{ color: "white", fontSize: "1.5rem", fontWeight: "bold" }} component={Link} to="/">
             Big Corp.
           </Button>
-          <ContactButton />
+          <CustomButton
+            to="/contact"
+            sx={{
+              border: "1px solid white",
+              [theme.breakpoints.down("sm")]: {
+                px: 2,
+                py: 0.5,
+              },
+            }}
+          >
+            Contact Us
+          </CustomButton>
         </Toolbar>
       </Container>
     </StyledAppBar>

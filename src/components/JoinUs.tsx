@@ -1,6 +1,8 @@
-import { Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { styled } from "styled-components";
-import ContactButton from "./ContactButton.tsx";
+import ContactButton from "./CustomButton.tsx";
+import CustomButton from "./CustomButton.tsx";
+import theme from "../styles/theme.ts";
 
 const StyledJoinUs = styled.section`
   background-color: #f5f5f5;
@@ -30,7 +32,20 @@ const JoinUs = () => {
         >
           Become our client today
         </Typography>
-        <ContactButton />
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <CustomButton
+            to="/contact"
+            sx={{
+              [theme.breakpoints.down("sm")]: {
+                maxWidth: "none",
+              },
+              flex: 1,
+              maxWidth: 1 / 4,
+            }}
+          >
+            Contact Us
+          </CustomButton>
+        </Box>
       </Container>
     </StyledJoinUs>
   );

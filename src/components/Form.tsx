@@ -1,8 +1,9 @@
 import { styled } from "styled-components";
-import { TextField, Button, Typography, Box, Alert, CircularProgress, FormControl } from "@mui/material";
+import { TextField, Typography, Box, Alert, CircularProgress, FormControl } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
 import Success from "./Success.tsx";
+import CustomButton from "./CustomButton.tsx";
 
 const FormLabel = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
@@ -76,8 +77,6 @@ const Form = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
-      console.log(data.message);
       setSubmitSuccess(true);
     } catch (error) {
       setSubmitError("Submission failed! Please try again.");
@@ -182,23 +181,10 @@ const Form = () => {
           }}
         />
 
-        <Box sx={{ display: "flex", mt: 2 }}>
-          <Button
-            type="submit"
-            variant="contained"
-            size="large"
-            disabled={isSubmitting}
-            sx={{
-              px: 4,
-              py: 1.5,
-              flex: 1,
-              borderRadius: "10px",
-              fontSize: "0.9rem",
-              fontWeight: 600,
-            }}
-          >
+        <Box sx={{ mt: 2, display: "flex" }}>
+          <CustomButton sx={{ flex: 1, maxWidth: "maxContent" }} type="submit" disabled={isSubmitting}>
             {isSubmitting ? <CircularProgress size={24} color="inherit" /> : "Submit"}
-          </Button>
+          </CustomButton>
         </Box>
       </FormControl>
     </Container>
