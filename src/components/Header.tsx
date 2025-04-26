@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { AppBar, Box, Button, Container, Toolbar } from "@mui/material";
+import { AppBar, Button, Container, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
 import CustomButton from "./CustomButton.tsx";
 import theme from "../styles/theme.ts";
