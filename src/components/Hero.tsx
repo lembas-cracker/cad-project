@@ -9,6 +9,8 @@ const StyledHero = styled.section`
   border-radius: 12px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  container-type: inline-size;
+  container-name: hero-container;
 `;
 
 const HeroGrid = styled.div`
@@ -17,9 +19,9 @@ const HeroGrid = styled.div`
   gap: 2rem;
   align-items: center;
 
-  @media (max-width: 1620px) {
+  @container hero-container (max-width: 1250px) {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 `;
 
@@ -29,8 +31,9 @@ const HeroContent = styled.div`
   gap: 1.5rem;
   padding: 2rem 0;
   text-wrap: balance;
+  text-align: left;
 
-  @media (max-width: 768px) {
+  @container hero-container (max-width: 1250px) {
     text-align: center;
   }
 `;
