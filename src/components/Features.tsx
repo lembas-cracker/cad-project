@@ -15,6 +15,21 @@ const FeaturesGrid = styled.div`
   gap: 2rem;
   margin: 3rem 0 2rem 0;
 
+  animation: fade-in linear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 30%;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -27,12 +42,14 @@ const FeaturesGrid = styled.div`
 const FeatureItem = styled(Box)`
   padding: 1rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: 0.4s ease;
   text-align: left;
+  cursor: pointer;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   }
 
   @media (max-width: 768px) {
