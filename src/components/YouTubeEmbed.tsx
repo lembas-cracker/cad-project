@@ -75,7 +75,7 @@ const YouTubeEmbed = ({ videoId, title }: YouTubeEmbedProps) => {
       {loaded ? (
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-          title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
+          title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           loading="lazy"
