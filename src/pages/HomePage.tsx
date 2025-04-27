@@ -5,7 +5,7 @@ import Layout from "../components/Layout.tsx";
 
 const HomePage = () => {
   return (
-    <Layout home>
+    <Layout home="true">
       <Hero />
       <Features />
       <JoinUs />
