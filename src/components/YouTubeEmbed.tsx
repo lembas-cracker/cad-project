@@ -26,7 +26,7 @@ const Placeholder = styled.div`
   width: 100%;
   height: 100%;
   background-color: #f0f0f0;
-  background-image: url("src/assets/maxresdefault.webp");
+  background-image: url("/assets/maxresdefault.webp");
   background-size: cover;
   display: flex;
   align-items: center;
