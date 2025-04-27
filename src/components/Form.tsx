@@ -15,6 +15,49 @@ const FormLabel = styled(Typography)(({ theme }) => ({
   },
 }));
 
+// custom text field for the form
+
+const StyledTextField = styled(TextField)(({ theme, error }) => ({
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "10px",
+    transition: "all 0.3s ease",
+    backgroundColor: theme.palette.background.paper,
+
+    // normal state
+    "& fieldset": {
+      borderColor: error ? theme.palette.error.main : "#e0e0e0",
+      borderWidth: "1.5px",
+    },
+
+    "&:hover fieldset": {
+      borderColor: error ? theme.palette.error.dark : theme.palette.primary.light,
+      boxShadow: "0 0 0 3px rgba(25, 118, 210, 0.1)",
+    },
+
+    // focused state
+    "&.Mui-focused fieldset": {
+      borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
+      borderWidth: "2px",
+      boxShadow: "0 0 0 2px rgba(25, 118, 210, 0.1)",
+    },
+
+    // disabled state
+    "&.Mui-disabled fieldset": {
+      borderColor: theme.palette.action.disabledBackground,
+      backgroundColor: theme.palette.action.hover,
+    },
+
+    "& .MuiFormHelperText-root": {
+      marginLeft: 0,
+      fontSize: "0.75rem",
+      "&.Mui-error": {
+        color: theme.palette.error.main,
+        fontWeight: 500,
+      },
+    },
+  },
+}));
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 const Form = () => {
@@ -115,7 +158,7 @@ const Form = () => {
         <FormLabel variant="subtitle1" className="required">
           Name
         </FormLabel>
-        <TextField
+        <StyledTextField
           name="name"
           label="e.g. Jane Doe"
           variant="outlined"
@@ -124,20 +167,12 @@ const Form = () => {
           onChange={handleChange}
           error={errors.name}
           helperText={errors.name ? "Name is required" : ""}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "10px",
-              "&.Mui-focused fieldset": {
-                borderColor: "primary.main",
-              },
-            },
-          }}
         />
 
         <FormLabel variant="subtitle1" className="required">
           Email
         </FormLabel>
-        <TextField
+        <StyledTextField
           name="email"
           label="e.g. jdoe@me.com"
           type="email"
@@ -147,20 +182,12 @@ const Form = () => {
           onChange={handleChange}
           error={errors.email}
           helperText={errors.email ? "Valid email is required" : ""}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "10px",
-              "&.Mui-focused fieldset": {
-                borderColor: "primary.main",
-              },
-            },
-          }}
         />
 
         <FormLabel variant="subtitle1" className="required">
           Message
         </FormLabel>
-        <TextField
+        <StyledTextField
           name="message"
           label="e.g. Hello there!"
           variant="outlined"
@@ -171,14 +198,6 @@ const Form = () => {
           onChange={handleChange}
           error={errors.message}
           helperText={errors.message ? "Message is required" : ""}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "10px",
-              "&.Mui-focused fieldset": {
-                borderColor: "primary.main",
-              },
-            },
-          }}
         />
 
         <Box sx={{ mt: 2, display: "flex" }}>
